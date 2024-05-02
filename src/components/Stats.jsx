@@ -12,7 +12,11 @@ function Stats({ stats }) {
 function Stat({ number, heading }) {
   return (
     <section className="stat">
-      <span className="stat__number">{number}</span>
+      <span
+        className={`stat__number ${number < 0 ? "stat__number--limit" : ""}`}
+      >
+        {number}
+      </span>
       <h2 className="second-heading">{heading}</h2>
     </section>
   );

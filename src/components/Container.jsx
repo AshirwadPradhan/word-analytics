@@ -1,20 +1,17 @@
 import { useState } from "react";
 import Stats from "./Stats";
 import TextArea from "./TextArea";
+import { FACEBOOK_MAX_CHARACTERS, INSTAGRAM_MAX_CHARACTERS } from "../lib/constants";
 
 function Container() {
   const [text, setText] = useState("");
-  // const numberOfWords =
-  // const numberOfChars = ;
-  // const instagramCharsLeft = s;
-  // const facebookCharsLeft = ;
-  const numberOfChars = text.length;
 
+  const numberOfChars = text.length;
   const stats = {
     numberOfWords: text.split(/\s/).filter((word) => word !== "").length,
     numberOfChars: numberOfChars,
-    instagramCharsLeft: 280 - numberOfChars,
-    facebookCharsLeft: 2200 - numberOfChars,
+    instagramCharsLeft: INSTAGRAM_MAX_CHARACTERS - numberOfChars,
+    facebookCharsLeft: FACEBOOK_MAX_CHARACTERS - numberOfChars,
   };
 
   return (
